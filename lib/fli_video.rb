@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "fli_video/version"
+require_relative 'fli_video/version'
 
 module FliVideo
   class Error < StandardError; end
