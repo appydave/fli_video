@@ -11,7 +11,7 @@ KManager.action :bootstrap do
       .data(
         ruby_version:               '3.2.2',
         application:                application_name,
-        application_description:    'FliVideo',
+        application_description:    'FliVideo - Video Asset Management',
         application_lib_path:       application_name.to_s, # need a specialized handlebars helper to turn this into a path, e.g ps-common => ps/common
         application_lib_namespace:  'FliVideo',
         namespaces:                 ['FliVideo'],
