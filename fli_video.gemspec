@@ -3,7 +3,7 @@
 require_relative 'lib/fli_video/version'
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version  = '>= 3.2.2'
+  spec.required_ruby_version  = '>= 2.7'
   spec.name                   = 'fli_video'
   spec.version                = FliVideo::VERSION
   spec.authors                = ['David Cruwys']
