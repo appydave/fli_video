@@ -1,0 +1,14 @@
+{
+  "name": "fli_video",
+  "version": "0.0.1",
+  "description": "FliVideo - Video Asset Management for Content Creators",
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "@klueless-js/semantic-release-rubygem": "github:klueless-js/semantic-release-rubygem",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^22.0.12"
+  }
+}

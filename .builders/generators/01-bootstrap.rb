@@ -11,7 +11,7 @@ KManager.action :bootstrap do
       .data(
         ruby_version:               '3.2.2',
         application:                application_name,
-        application_description:    'FliVideo - Video Asset Management',
+        application_description:    'FliVideo - Video Asset Management for Content Creators',
         application_lib_path:       application_name.to_s, # need a specialized handlebars helper to turn this into a path, e.g ps-common => ps/common
         application_lib_namespace:  'FliVideo',
         namespaces:                 ['FliVideo'],
@@ -33,7 +33,7 @@ KManager.action :bootstrap do
         # run_command('git init')
       end
       .blueprint(
-        active: true,
+        active: false,
         name: :bin_hook,
         description: 'initialize repository',
         on_exist: :write) do
@@ -70,7 +70,7 @@ KManager.action :bootstrap do
         run_command("git add .; git commit -m 'chore: #{self.options.description.downcase}'; git push")
       end
       .blueprint(
-        active: false,
+        active: true,
         name: :opinionated,
         description: 'opinionated GEM files',
         on_exist: :write) do
