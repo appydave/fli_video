@@ -34,4 +34,3 @@ Change Chapter Name
   Alter the name of a chapter based on its sequence in the project, facilitating better organization and identification of video content.
 Change Chapter Sequence
   Adjust the chapter sequence for all files within a chapter, for example, changing from 02 to 03, ensuring consistent and accurate organization of video content.
-
