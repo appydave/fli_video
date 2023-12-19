@@ -1,3 +1,21 @@
+## [0.0.2](https://github.com/klueless-io/fli_video/compare/v0.0.1...v0.0.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* downgrade sem ver ([34c7f77](https://github.com/klueless-io/fli_video/commit/34c7f77bf52b899cbc36e202b71ea9530177e9a7))
+* naming issue ([b573d05](https://github.com/klueless-io/fli_video/commit/b573d056e044c8054ef1f98fc8219041efac86ab))
+* package json issue ([efc9435](https://github.com/klueless-io/fli_video/commit/efc9435d829585db1fc27878f134f5f8b802f5a0))
+* ruby 2.7 ([303d59f](https://github.com/klueless-io/fli_video/commit/303d59f49fd7cbc09e2ac0b2c89ba8538d3dd37b))
+* testing semver1 ([f71b294](https://github.com/klueless-io/fli_video/commit/f71b2944c6bffa8c85859b247dced28f9cc61cdd))
+* testing semver2 ([f0ea217](https://github.com/klueless-io/fli_video/commit/f0ea217416783452db4a0efee0df37ac64391bb1))
+* testing semver3 ([c28ffa8](https://github.com/klueless-io/fli_video/commit/c28ffa8b428216807046acec74935e6fee6f710a))
+* testing semver4 ([c1e260d](https://github.com/klueless-io/fli_video/commit/c1e260d069e88f72b4505dd52050305fd6de64cd))
+* version fixed for semver ([c65bf64](https://github.com/klueless-io/fli_video/commit/c65bf64335b040ca96e6aab495f7b73cfeda4f8d))
+* version fixed for semver ([484225f](https://github.com/klueless-io/fli_video/commit/484225ff32be5dc21a6e9c7231f73c59f6753ada))
+* version fixed for semver ([1011cd9](https://github.com/klueless-io/fli_video/commit/1011cd90daf6631078b22be47c8a37265ab8b6f2))
+* version normalization ([e50f6ac](https://github.com/klueless-io/fli_video/commit/e50f6acf3500ee1b5cc80cb57ea24823a017d905))
+
 ## [Unreleased]
 
 ## [0.1.0] - 2023-12-19
