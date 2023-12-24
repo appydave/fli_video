@@ -1,3 +1,11 @@
+# [0.1.0](https://github.com/klueless-io/fli_video/compare/v0.0.2...v0.1.0) (2023-12-24)
+
+
+### Features
+
+* project kickoff ([a3863cf](https://github.com/klueless-io/fli_video/commit/a3863cf712002497cb77a829b2b832a0f8d54a0b))
+* starting projectx ([0680236](https://github.com/klueless-io/fli_video/commit/06802367b7a1cfa3b928b97e41031d1c24c41c9b))
+
 ## [0.0.2](https://github.com/klueless-io/fli_video/compare/v0.0.1...v0.0.2) (2023-12-19)
 
 
