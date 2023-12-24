@@ -3,6 +3,7 @@
 require_relative '../fli_video'
 
 module FliVideo
+  # FliVideo::CLI is the command line interface for the FliVideo gem.
   class CLI
     def self.start(args)
       new(args).execute
@@ -14,7 +15,7 @@ module FliVideo
 
     def execute
       if @args.empty?
-        puts "FliVideo CLI - No command provided"
+        puts 'FliVideo CLI - No command provided'
         return
       end
 
