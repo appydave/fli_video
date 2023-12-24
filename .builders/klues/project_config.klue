@@ -1,0 +1,123 @@
+component :project_configuration do
+  desc "Manage project / episode settings and state."
+
+  pattern "Adapter"
+
+  comments <<~TEXT
+    Configuration file: .fv.json
+    - Handles settings for single videos or the episodes in a Podcast.
+    - Responsible for reading and updating settings.
+    - Supports state management for single video, episodes, recording and chapter progression.
+    - This class is a reflection of the configuration file and the folders and files it manages.
+
+    Project type: video
+    - A single video file.
+    - Supports recording and chapter progression
+
+    Project type: podcast
+    - Multiple video files known as episodes.
+    - Supports recording and chapter progression for each episode.
+
+    Infers project type from the presence of the "episodes" key.
+    Infers project name from the name of the folder containing the configuration file.
+    Infers episode name from the name of the folder containing the video file.
+    Keeps track of prefered chapter name for each chapter sequence.
+  TEXT
+
+  method :load
+  method :save
+  method :resync_project_files()        # refreshes the configuration based on the file system
+  method :current_chapter()             # if type == :video
+  method :current_episode()             # if type == :podcast
+
+  data_object :project_config do
+    constructor(:json)
+
+    attribute :type                     # video, podcast
+    attribute :code
+    attribute :chapters                 # if type == :video
+    attribute :episodes                 # if type == :podcast
+  end
+
+  data_object :episode_config do
+    constructor(:json)
+
+    attribute :seq                      # episode number store as number, but displayed as 2 digit string
+    attribute :chapters
+    attribute :current                  # true if this is the current episode
+
+    method :current_chapter()
+  end
+
+  data_object :chapter_config do
+    constructor(:json)
+
+    attribute :seq
+    attribute :preferred_name
+    attribute :current                  # true if this is the current chapter
+  end
+
+  sample :configuration, :for_video, <<~JSON
+  {
+    "type": "video",
+    "code": "e28",
+    "chapters": [
+      {
+        seq: 1,
+        preferred_name: "intro"
+      },
+      {
+        seq: 2,
+        preferred_name: "example"
+      },
+      {
+        seq: 3,
+        preferred_name: "outro",
+        current: true
+      }
+    ]
+  }
+  JSON
+
+  sample :configuration, :for_podcast, <<~JSON
+  {
+    "type": "podcast",
+    "code": "e27",
+    "episodes": [
+      {
+        "seq": 1,
+        "chapters": [
+          {
+            "seq": 1,
+            "preferred_name": "introduction",
+          },
+          {
+            "seq": 2,
+            "preferred_name": "scenario",
+            "current": true
+          }
+        ]
+      },
+      {
+        "seq": 2,
+        "current": true,
+        "chapters": [
+          {
+            "seq": 1,
+            "preferred_name": "introduction",
+          },
+          {
+            "seq": 2,
+            "preferred_name": "scenario",
+          },
+          {
+            "seq": 3,
+            "preferred_name": "story",
+            "current": true
+          }
+        ]
+      }
+    ]
+  }
+  JSON
+end

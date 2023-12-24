@@ -2,6 +2,8 @@
 
 > FliVideo - Video Asset Management for Content Creators
 
+GPT Link: https://chat.openai.com/c/895a1bf9-8134-4688-8805-b8047af5f3f0
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,19 +24,26 @@ Or install it yourself as:
 gem install fli_video
 ```
 
-## Stories
+## Documentation
+
+### Technical Design Document
+
+The main design document is located here: [Technical Specification](docs/technical-specifications.md)
+
+### Feature List
+
+List of features that are planned for this project: [Feature List](docs/feature-list.md)
 
 ### Main Story
 
 As a content creator, I want to create quality videos quickly, so that I can build my YouTube influence
 
-See all [stories](./STORIES.md)
+See all [stories](./stories.md)
 
 
 ## Usage
 
 See all [usage examples](./USAGE.md)
-
 
 
 ## Development
@@ -49,25 +58,9 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-```bash
-bin/console
-
-Aaa::Bbb::Program.execute()
-# => ""
-```
-
-`fli_video` is setup with Guard, run `guard`, this will watch development file changes and run tests automatically, if successful, it will then run rubocop for style quality.
-
-To release a new version, update the version number in `version.rb`, build the gem and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-```bash
-rake publish
-rake clean
-```
-
 ## Git helpers used by this project
 
-Add the follow helpers to your `alias` file
+Add the follow helpers to your `alias` file so that you can use Semantic Commits and have them automatically pushed to GitHub and have the CI/CD pipeline run.
 
 ```bash
 function kcommit()

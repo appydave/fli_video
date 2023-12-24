@@ -1,0 +1,28 @@
+component :transcript_data_store do
+  desc "Build a JSON datastore of transcripts for an entire project."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Aggregates transcripts from various project levels into a single JSON datastore.
+    - Scans project, episode, recording, chapter, and post-produced folders for existing transcripts.
+    - Facilitates easy access and management of transcript data across the entire project.
+    - Enhances data retrieval and analysis capabilities for the project's transcripts.
+    - Stores data in a JSON file called 'transcripts.json' in the project folder.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run
+
+  sample :build_transcript_datastore, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    # Instantiate the component with the parent project
+    transcript_store = transcript_data_store.new(project_path)
+
+    # Execute the process to aggregate and store transcript data
+    transcript_store.run
+    # Output: '~/video-projects/a27-ac-categorize-mp4-CI/project_transcripts.json'
+  RUBY
+end

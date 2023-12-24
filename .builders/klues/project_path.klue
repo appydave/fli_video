@@ -1,0 +1,77 @@
+component :project_path do
+  desc "Construct project path using project code and deducing state based on existing folder name."
+
+  pattern "Adapter"
+
+  comments <<~TEXT
+    - Infers project path based on project code and existing folder name.
+    - Maintains state for project code, channel code, descriptive name, keywords and episodes.
+    - Uses global configuration to determine root folder.
+    - Uses existing folder name and keywords to build internal state.
+    - Provides method for building absolute, relative and sub folder.
+    - Provides method for building new path for rename operations.
+    - Provides list of associated episode paths.
+    - Stores state in an internal data object.
+    - Designed for building folder names, not create or modify actual directories.
+  TEXT
+
+  accessors :project_code, :channel_code, :project_name, :keywords, :project_path, :episodes
+
+  method :constructor(:project_code, channel_code: nil, project_name: nil, keywords: nil)
+  method :instance(:folder)
+
+  method :change_path(project_code: nil, channel_code: nil, project_name: nil, keywords: nil)
+
+  sample :create_project_path, <<~RUBY
+    # Create a new project path
+    project_path = ProjectPath.new('a27', channel_code: 'ac', project_name: 'categorize-mp4', keywords: ['CI'] )
+    project_path.project_path # => "~/video-projects/a27-ac-categorize-mp4-CI"
+    project_path.project_code # => "a27"
+    project_path.channel_code # => "ac"
+    project_path.project_name # => "categorize-mp4"
+    project_path.keywords # => "CI"
+    project_path.episodes.count # => 0
+  RUBY
+
+  sample :infer_project_path, <<~RUBY
+    # Infer project path based on project code and existing folder
+    project_path = ProjectPath.new('a27')
+    project_path.project_path # => "~/video-projects/a27-ac-categorize-mp4-CI"
+    project_path.project_code # => "a27"
+    project_path.channel_code # => "ac"
+    project_path.project_name # => "categorize-mp4"
+    project_path.keywords # => "CI"
+    project_path.episodes.count # => 2
+  RUBY
+
+  sample :rename_project_path, <<~RUBY
+    # Rename project path
+    project_path = ProjectPath.new('a27')
+
+    path1 = project_path.change_path(project_code: 'a28')
+    path1.project_path # => "~/video-projects/a28-ac-categorize-mp4-CI"
+    path2 = project_path.change_path(channel_code: 'ad', project_name: 'categorize-mp4-for-appydave')
+    path2.project_path # => "~/video-projects/a27-ad-categorize-mp4-for-appydave-CI"
+    path3 = project_path.change_path(keywords: [])
+    path3.project_path # => "~/video-projects/a27-ac-categorize-mp4"
+  RUBY
+
+  sample :next_project_code, <<~RUBY
+    # Get next project code
+    project_path = ProjectPath.new('a27')
+    project_path.next_project_code # => "a28"
+
+    project_path = ProjectPath.new('a99')
+    project_path.next_project_code # => "b00"
+  RUBY
+
+  sample :folder_to_project_path, <<~RUBY
+    # Convert folder to project path
+    project_path = ProjectPath.instance('~/video-projects/a27-ac-categorize-mp4-CI')
+    project_path.project_path # => "~/video-projects/a27-ac-categorize-mp4-CI"
+    project_path.project_code # => "a27"
+    project_path.channel_code # => "ac"
+    project_path.project_name # => "categorize-mp4"
+    project_path.keywords # => "CI"
+  RUBY
+end

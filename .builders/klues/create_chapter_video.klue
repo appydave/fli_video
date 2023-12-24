@@ -1,0 +1,34 @@
+component :create_chapter_video do
+  desc "Combine and all video parts for a chapter sequence and put into the chapters folder."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Combines individual video segments into a single chapter video.
+    - Facilitates independent review and editing of each chapter.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run(:chapter_seq)
+
+  sample :create_chapter_video, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    # Instantiate the component with the parent project
+    create_chapter_video = generate_chapter_video.new(project_path)
+
+    # Automatically combine all video segments for a chapter
+    create_chapter_video.run(1)
+    # Output: '~/video-projects/a27-ac-some-podcast/chapters/01-complete-chapter.mov'
+  RUBY
+
+  sample :create_chapter_video_for_segments, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    create_chapter_video = generate_chapter_video.new(project_path)
+
+    create_chapter_video.run(1, ['01-intro-a.mov', '02-intro-b.mov'], output_file_name: '01-intro-custom.mov')
+    # Output: '~/video-projects/a27-ac-some-podcast/chapters/01-intro-custom.mov'
+  RUBY
+end

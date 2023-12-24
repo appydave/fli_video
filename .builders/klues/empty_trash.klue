@@ -1,0 +1,24 @@
+component :empty_trash do
+  desc "Permanently delete video takes from the '.trash' folder."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Permanently removes all recordings from the trash folder.
+    - Frees up storage space by deleting unnecessary files.
+    - Maintains project clarity by clearing clutter.
+    - Ensures that only unwanted takes are deleted after a final review.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run
+
+  sample :permanently_delete_trash, <<~RUBY
+    project_path = ProjectPath.new('a27')
+    
+    # Permanently deleting all contents of the trash folder
+    clean_trash.empty_trash
+    # Empties the entire .trash folder in "~/video-projects/a27-ac-categorize-mp4-CI/.trash/
+  RUBY
+end

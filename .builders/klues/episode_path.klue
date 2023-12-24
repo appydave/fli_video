@@ -1,0 +1,77 @@
+component :episode_path do
+  desc "Construct episode path using project/episode code and deducing state based on existing folder name."
+
+  pattern "Adapter"
+
+  comments <<~TEXT
+    - Infers episode path based on episode code and existing folder name.
+    - Maintains state for episode code and descriptive name and keywords.
+    - Will use current project code if not provided.
+    - Path is relative to project path.
+    - Uses existing folder name and keywords to build internal state.
+    - Provides method for building absolute, relative and sub folder.
+    - Provides method for building a new path for rename operations.
+    - Provides access to associated project.
+    - Stores state in an internal data object.
+    - Designed for building folder names, not create or modify actual directories.
+    TEXT
+
+  accessors :episode_code, :episode_name, :keywords, :episode_path, :project
+
+  method :constructor(:episode_code, episode_name: nil, keywords: nil, project_code: nil)
+  method :instance(:folder)
+
+  method :change_path(episode_code: nil, episode_name: nil, keywords: nil)
+
+  # project_path.recording_path # => "~/video-projects/a27-ac-categorize-mp4-CI/recordings"
+                                    # ~/video-projects/a27-ac-categorize-mp4-CI/01-flivideo-project-kickoff-TODO/recordings
+
+  sample :create_episode_path, <<~RUBY
+    # Create a new episode path
+    episode_path = EpisodePath.new('01', episode_name: 'flivideo-project-kickoff', keywords: ['TODO'] )
+    episode_path.episode_path # => "~/video-projects/a27-ac-categorize-mp4-CI/01-flivideo-project-kickoff-TODO"
+    episode_path.episode_code # => "01"
+    episode_path.episode_name # => "flivideo-project-kickoff"
+    episode_path.keywords # => ["TODO"]
+
+    project_path = episode_path.project
+    project_path.project_path # => "~/video-projects/a27-ac-categorize-mp4-CI"
+  RUBY
+
+  sample :infer_episode_path, <<~RUBY
+    # Infer episode path based on episode code and existing folder
+    episode_path = EpisodePath.new('01')
+    episode_path.episode_path # => "~/video-projects/a27-ac-categorize-mp4-CI/01-flivideo-project-kickoff-TODO"
+    episode_path.episode_code # => "01"
+    episode_path.episode_name # => "flivideo-project-kickoff"
+    episode_path.keywords # => ["TODO"]
+
+  RUBY
+
+  sample :rename_episode_path, <<~RUBY
+    # Rename episode path
+    episode1 = EpisodePath.new('01')
+    episode1.episode_path # => "~/video-projects/a27-ac-categorize-mp4-CI/01-flivideo-project-kickoff-TODO"
+
+    episode2 = episode1.change_path(episode_code: '02')
+    episode2.episode_path # => "~/video-projects/a27-ac-categorize-mp4-CI/02-flivideo-project-kickoff-TODO"
+
+    episode3 = episode1.change_path(episode_code: '03', episode_name: 'build-gpts', keywords: [])
+    episode3.episode_path # => "~/video-projects/a27-ac-categorize-mp4-CI/03-build-gpts"
+  RUBY
+
+  sample :next_episode_code, <<~RUBY
+    # Get next episode code
+    episode_path = EpisodePath.new('01')
+    episode_path.next_episode_code # => "02"
+  RUBY
+
+  sample :folder_to_episode_path, <<~RUBY
+    # Convert folder to episode path
+    episode_path = EpisodePath.instance('~/video-projects/a27-ac-categorize-mp4-CI/01-flivideo-project-kickoff-TODO')
+    episode_path.episode_path # => "~/video-projects/a27-ac-categorize-mp4-CI/01-flivideo-project-kickoff-TODO"
+    episode_path.episode_code # => "01"
+    episode_path.episode_name # => "flivideo-project-kickoff"
+    episode_path.keywords # => ["TODO"]
+  RUBY
+end

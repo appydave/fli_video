@@ -1,0 +1,24 @@
+component :change_focus do
+  desc "Easily switch between different video projects or episodes to accommodate changing content priorities."
+
+  pattern "Interactor"
+
+  comments <<~TEXT
+    - Allows switching the focus to a different video project or a specific episode within a podcast.
+    - Video recordings belong to a specific project or episode and this interaction ensures that the correct project or episode is in focus.
+    - Ensures seamless transition and updates the working context to the selected project or episode.
+    - Maintains state consistency across switches using the global configuration.
+  TEXT
+
+  method :run(:project_code, episode_code: nil)
+
+  sample :switch_focus_to_video_project, <<~RUBY
+    # Switch focus to a different video project
+    change_focus.run('a20')
+  RUBY
+
+  sample :switch_focus_to_podcast_episode, <<~RUBY
+    # Switch focus to a specific episode within a podcast project
+    change_focus.run('a21', '02')
+  RUBY
+end

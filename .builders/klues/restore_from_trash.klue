@@ -1,0 +1,29 @@
+component :restore_from_trash do
+  desc "Retrieve video takes from '.trash' folder and move them back to the project folder."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Restores a specific recording from the trash to the project folder.
+    - If no specific recording is provided, restores the most recently trashed recording.
+    - Facilitates reconsideration or re-evaluation of previously discarded content.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run(:file_name)
+
+  sample :restore_from_trash, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    command = undo_trash.new(project_path)
+
+    # Example of restoring a specific recording from the trash folder
+    command.run('01-a-introduction.mov')
+    # => "~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov"
+
+    # Example of restoring the most recently trashed recording
+    command.run
+    # => "~/video-projects/a27-ac-categorize-mp4-CI/Ecamm Live Recording on 2023-08-25 at 14.51.58.mov"
+  RUBY
+end

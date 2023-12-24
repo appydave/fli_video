@@ -1,0 +1,32 @@
+component :change_chapter_name do
+  desc "Alter the name of a chapter based on its sequence in the project, facilitating better organization and identification of video content."
+
+  pattern "Command"
+  note "This should be a method on the project"
+
+  comments <<~TEXT
+    - Allows the renaming of a chapter within a video project.
+    - Utilizes the chapter's sequence number to identify and target the specific chapter for renaming.
+  TEXT
+
+  method :rename_chapter(:parent, :chapter_sequence, :new_name)
+
+  <<~FILE_SYSTEM
+    01-a-introduction-GPTIMPROVE.mov
+    01-b-introduction-more-content.mov
+    01-c-introduction.mov
+    01-d-introduction-CTA.mov
+    02-a-overview.mov
+    03-a-scenario-TITLE.mov
+  FILE_SYSTEM
+
+  sample :change_chapter_name_in_project, <<~RUBY
+    # Example of changing the name of a specific chapter in a project
+    change_chapter_name.rename_chapter('a27', '01', 'intro')
+
+    # 01-a-intro-GPTIMPROVE.mov
+    # 01-b-intro.mov
+    # 01-c-intro.mov
+    # 01-d-intro-CTA.mov
+  RUBY
+end

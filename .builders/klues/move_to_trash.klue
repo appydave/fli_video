@@ -1,0 +1,29 @@
+component :move_to_trash do
+  desc "Move suboptimal video takes to '.trash' folder"
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Will trash a specific recording in a project folder.
+    - Will identify the last eCamm recording in a project folder if no specific recording is provided.
+    - Enhances project clarity and organization.
+  TEXT
+
+  constructure(:parent_project)
+
+  method :run(:file_name)
+
+  sample :move_video_to_trash, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    command = move_to_trash.new(project_path)
+  
+    # Example of moving a specific suboptimal video take to the trash folder
+    command.run('01-a-introduction.mov')
+    # => "~/video-projects/a27-ac-categorize-mp4-CI/.trash/01-a-introduction.mov"
+
+    # Example of moving the last suboptimal video take to the trash folder
+    command.run
+    # => "~/video-projects/a27-ac-categorize-mp4-CI/.trash/Ecamm Live Recording on 2023-08-25 at 14.51.58.mov
+  RUBY
+end

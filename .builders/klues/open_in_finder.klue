@@ -1,0 +1,25 @@
+component :open_in_finder do
+  desc "Quickly access video project and episode folders within the Finder."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Provides shortcuts to open project and episode folders in the Finder.
+    - Enhances efficiency in navigating to specific video project locations.
+    - Streamlines the process of locating and managing video files and folders.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run
+
+  sample :access_project_in_finder, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    command = open_in_finder.new(project_path)
+    # Opens the folder for project 'a27' in Finder
+
+    command.run
+    # Opens the folder for episode '01' of project 'a27' in Finder
+  RUBY
+end

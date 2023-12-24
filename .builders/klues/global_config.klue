@@ -1,0 +1,31 @@
+component :global_configuation do
+  pattern "Singleton"
+
+  desc "Access and apply global configuration settings for video asset management and state consistency."
+
+  comments <<~TEXT
+    Configuration file path: ~/.fli-video.json
+    - Automatically creates a configuration file if it does not exist.
+    - Responsible for reading and updating global configuration.
+    - Provides methods to manage folder paths and various settings.
+  TEXT
+
+  sample :configuration, <<~JSON
+  {
+    "folders": {
+      "ecamm-recordings": "~/Movies/Ecamm Live Recordings",
+      "project-root": "/Volumes/Expansion/Sync/tube-channels/a-cast/cast-active",
+    },
+    "settings": {
+      "focus-project-code": "a27",
+    },
+  }
+  JSON
+
+  method :set_folder(:key, :folder)
+  method :folder(:key)
+  method :set_setting(:key, :value)
+  method :setting(:key)
+  method :load
+  method :save
+end

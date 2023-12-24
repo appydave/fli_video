@@ -1,0 +1,21 @@
+component :move_ecamm_file do
+  desc "Seamlessly transfer eCamm recordings to the current focused video or podcast episode recordings subfolder."
+
+  comments <<~TEXT
+    - Facilitates the transfer of eCamm recording files to the appropriate project's recording subfolder.
+    - Automatically identifies the current focused project or episode to ensure correct file placement.
+    - Handles the file transfer process, maintaining file integrity and updating any necessary metadata.
+    - Uses global configuration to determine eCamm recording folder location.
+    - Uses current project configuration to determine recording subfolder location.
+    - Aborts the transfer process if target folder does not exist.
+  TEXT
+
+  method :execute(:ecamm_file_name)
+
+  sample :move_ecamm_file_to_project, <<~RUBY
+    # Move an eCamm recording to the currently focused project's recordings subfolder
+    move_ecamm_file.execute('Ecamm Live Recording on 2023-08-25 at 14.51.58.mov')
+
+    # ~/video-projects/a20-ad-some-video/recordings/Ecamm Live Recording on 2023-08-25 at 14.51.58.mov
+  RUBY
+end

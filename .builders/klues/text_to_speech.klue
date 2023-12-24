@@ -1,0 +1,29 @@
+component :text_to_speech do
+  desc "Transcribe spoken content to text and store in multiple transcription formats."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Transcribes audio content from videos into text.
+    - Supports storing transcriptions in various formats for accessibility and further processing.
+    - Uses the transcript folder under the recording, chapter or post-production folder and stores the transcriptions in a subfolder called 'transcript'.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run(:recording_file, output_formats:)
+
+  sample :transcribe_audio_to_text, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    # ~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov
+    # Instantiate the component with the parent project
+    tts = text_to_speech.new(project_path)
+
+    # Execute the transcription against
+    tts.run('01-introduction.mov', output_formats: ['txt', 'srt', 'vtt', 'json', 'tsv'])
+
+    # Transcribes '01-introduction.mov' and stores the transcriptions in the specified formats
+    # Output: Transcriptions saved in '~/video-projects/a27-ac-categorize-mp4-CI/recordings/transcript/01-introduction.txt|srt|vtt|json|tsv'
+  RUBY
+end

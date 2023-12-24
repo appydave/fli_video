@@ -1,0 +1,25 @@
+component :add_episode do
+  desc "Add a new episode to an existing podcast project."
+
+  pattern "Interactor"
+
+  comments <<~TEXT
+    - Facilitates the addition of a new episode to a specific podcast project.
+    - Requires the project code of the podcast to ensure correct association.
+    - Allows setting of episode-specific details like episode code and name.
+    - Ensures that the episode is added only to podcast projects and not to other project types.
+    - Will create recording, chapter and support folders for the episode.
+  TEXT
+
+  method :run(:project_code, :episode_code, :episode_name)
+
+  sample :add_episode_to_podcast, <<~RUBY
+    # Add a new episode to existing podcast folder
+    add_episode.run('a21', '01', 'Episode About Something')
+    # Create:
+    # ~/video-projects/a21-ac-some-podcast/01-episode-about-something/assets
+    # ~/video-projects/a21-ac-some-podcast/01-episode-about-something/chapters
+    # ~/video-projects/a21-ac-some-podcast/01-episode-about-something/recordings
+    # ~/video-projects/a21-ac-some-podcast/01-episode-about-something/.trash
+  RUBY
+end

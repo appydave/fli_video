@@ -1,0 +1,28 @@
+component :filewatch_processor do
+  desc "Automate file event responses, directing new recordings to current project folders."
+
+  pattern "Observer"
+
+  comments <<~TEXT
+    - Monitors new eCamm recordings file events.
+    - Automates the process of moving new recordings to specified project folders.
+    - Enhances content management by ensuring recordings are organized efficiently.
+    - Configurable to respond to different types of file events and target folders.
+  TEXT
+
+  method :watch(:folder_path, :event_type)
+
+  # Will move the file to current project's recordings folder
+  method :move_file
+
+  sample :automate_recording_organization, <<~RUBY
+    config = GlobalConfig.instance
+    
+    # Watch a specific folder for new and existing recordings
+    filewatch_processor.watch(config.folders['ecamm-recordings'], '*.mov', :moved_file)
+
+    # Example usage
+    # When a new file is detected in Ecamm Live Recordings, it is automatically moved to the current project's recordings folder.
+    filewatch_processor.move_file
+  RUBY
+end

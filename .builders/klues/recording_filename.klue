@@ -1,0 +1,112 @@
+component :recording_filename do
+  desc "Calculate the next video recording file name based on chapter sequence, part number, chapter name, and tags if available."
+
+  pattern "Adapter"
+
+  comments <<~TEXT
+    - File name construction for new and existing video recordings.
+    - Utilizes the chapter and part sequence for systematic naming.
+    - Incorporates the chapter name for descriptive clarity.
+    - Has support for tags in the file name to aid content identification and post-processing workflows.
+    - Set episode & project via the episode if recording belongs to an episode
+    - Set project if recording belongs to a project
+    - Parent returns episode || project
+  TEXT
+
+  accessors :chapter_seq, :part_seq, :chapter_name, :tags, :filename, :episode, :project, :parent
+
+  method :constructor(:chapter_seq, :part_seq, :chapter_name, tags: [], parent: nil)
+  method :instance(:full_path)
+
+  # Use the current chapter sequence if not provided
+  # Part sequence will increment based on the previous part letter in the chapter if not provided
+  # Chapter name will defaults to previous recording chapter name if not provided
+  method :next_filename(:previous_filename, chapter_name: nil, tags: [], chapter_seq: nil, part_seq: nil)
+  method :update_chapter_sequence(:current_chapter_seq, :new_chapter_seq)
+  method :resequence_chapters(:starting_chapter_seq)
+  method :update_tags(:new_tags)
+
+  sample :create_recording_filename, <<~RUBY
+    project_path = ProjectPath.new('a27')
+    project_path.project_path # => "~/video-projects/a27-ac-categorize-mp4-CI"
+
+    # Generate a filename for a new video recording
+    filename1 = RecordingFilename.new(1, 'a' 'introduction', tags: [], parent: project_path)
+    filename1.filename # => "01-a-introduction.mov"
+    filename1.chapter_seq # => 1
+    filename1.part_seq # => "a"
+    filename1.chapter_name # => "introduction"
+    filename1.tags # => []
+    filename1.full_path # => "~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov"
+  RUBY
+
+  sample :next_recording_filename, <<~RUBY
+    filename1 = "~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov"
+
+    project = ProjectConfig.new('a27')
+
+    # Class method to generate a filename for a new video recording
+    filename2 = RecordingFilename.next_filename(filename1, chapter_name: 'introduction-more-content', tags: ['GPTIMPROVE'])
+
+    # Fluent method to generate a filename for a new video recording
+    filename3 = filename2.next_filename(chapter_name: 'introduction')
+    filename4 = filename3.next_filename(tags: ['CTA'])
+
+    project.next_chapter('overview')
+
+    filename5 = RecordingFilename.next_filename(project.last_file)
+
+    project.next_chapter('scenario')
+
+    filename6 = RecordingFilename.next_filename(project.last_file, tags: ['TITLE'])
+
+    filename1.filename # => "01-a-introduction-GPTIMPROVE.mov"      # Send transcription to GPT Bot for improvement
+    filename2.filename # => "01-b-introduction-more-content.mov"
+    filename3.filename # => "01-c-introduction.mov"
+    filename4.filename # => "01-d-introduction-CTA.mov"             # Instruction for video editor to add a CTA
+    filename5.filename # => "02-a-overview.mov"
+    filename6.filename # => "03-a-scenario-TITLE.mov"               # Instruction for video editor to add a title slide
+  RUBY
+
+  sample :file_to_recording_filename, <<~RUBY
+    # Convert absolute file to recording filename
+    filename = RecordingFilename.instance('~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov')
+
+    filename.filename # => "01-a-introduction.mov"
+    filename.chapter_seq # => 1
+    filename.part_seq # => "a"
+    filename.chapter_name # => "introduction"
+    filename.tags # => []
+    filename.full_path # => "~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov"
+  RUBY
+
+  sample :rename_recording_filename, <<~RUBY
+    filename = RecordingFilename.instance('~/video-projects/a27-ac-categorize-mp4-CI/01-a-introduction.mov')
+    filename.filename # => "01-a-introduction.mov"
+
+    filename.change_filename(chapter_name: 'introduction-trim-23s', tags: ['GPTDALE3'])
+    filename.filename # => "01-a-introduction-trim-23s-GPTDALE3.mov"
+  RUBY
+
+  sample :update_chapter_sequence, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    # Update chapter sequence in a project
+    filename = RecordingFilename.new(2, 'b', 'overview', parent: project_path)
+    filename.update_chapter_sequence(2, 3)
+    filename.filename # => "03-b-overview.mov"
+  RUBY
+
+  sample :resequence_chapters, <<~RUBY
+    # Resequence chapters starting from a given sequence
+    filename.resequence_chapters(2)
+    # Adjusts chapter sequence of all subsequent chapters starting from '02'
+  RUBY
+
+  sample :update_tags, <<~RUBY
+    # Update tags for a recording
+    filename = RecordingFilename.new(1, 'a', 'introduction', tags: ['OLD_TAG'], parent: project_path)
+    filename.update_tags(['NEW_TAG'])
+    filename.filename # => "01-a-introduction-NEW_TAG.mov"
+  RUBY
+end

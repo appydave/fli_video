@@ -1,0 +1,28 @@
+component :project_meta_data_store do
+  desc "Build a JSON datastore of project files with inferred metadata."
+
+  pattern "Command"
+
+  comments <<~TEXT
+    - Aggregates file data from project, episode, recording, chapter, and post-produced folders.
+    - Infers metadata from sources like KEYWORDS, transcripts, and other relevant data.
+    - Creates a comprehensive JSON datastore for the entire project.
+    - Facilitates advanced data analysis and management for the project.
+    - The extracted data can be used for automated post-production processes like keyword generation, B-roll prompts, chapter names, title slides, and time code markers for calls to action.
+  TEXT
+
+  constructor(:parent_project)
+
+  method :run
+
+  sample :build_project_metadata, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    # Instantiate the component with the parent project
+    metadata_store = project_meta_data_store.new(project_path)
+
+    # Execute the process to aggregate files and infer metadata
+    metadata_store.run
+    # Output: '~/video-projects/a27-ac-categorize-mp4-CI/project_metadata.json'
+    RUBY
+end
