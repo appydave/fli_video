@@ -1,3 +1,5 @@
+# FliVideo
+
 ## Application Overview
 
 This document provides an overview of a specialized application designed primarily for video content creators using Ecamm Live on the Mac, and adaptable for OBS users. Tailored for projects ranging from individual YouTube videos to episodes in a podcast series, the application fits seamlessly into the workflow between video recording and editing. It streamlines the post-recording process, encompassing file organization, renaming, and assembly of video recordings, thereby enhancing the efficiency and structure of content creation.
@@ -343,18 +345,22 @@ project-name/recordings/03-a-outro.mov
 project-name/recordings/03-b-outro-cta.mov
 project-name/recordings/03-c-outro.mov
 ```
+
 ## Features
 
 ### Feature <-> DSL GPTs
 https://chat.openai.com/g/g-AyFi0UOXn-code-simplifier
 
-**Read Global Configuration**
+**Global Configuration**
 Access and apply global configuration settings for video asset management and state consistency.
 
 **Project Configuration**
-Access and apply video or episode settings and state.
+Access and apply video or episode settings and state. Infers project settings from existing project folders and files.
 
-**FileWatch Processor for File Event Commands**
+**CLI Project Commands**
+Efficiently execute and manage video project commands using a command-line interface, enhancing control and flexibility in project handling.
+
+**FileWatch Processor**
 Utilize a FileWatch processor to automate file event responses, directing new recordings to designated folders for efficient content management.
 
 **Create Project**
@@ -409,12 +415,10 @@ Build a JSON datastore of files for an entire project based on existing project,
 
 ## Future Ideas
 
-**CLI Project Management Interface**
-Efficiently execute and manage video project commands using a command-line interface, enhancing control and flexibility in project handling.
-
 **Web Command Interface for Video Project Management**
 Introduce a streamlined, web-based interface for managing video project commands, enabling efficient control and organization of project components through simple browser interactions.
 
 **Project Meta Report**
 Generate a detailed report for a specific video project, including the episodes, chapters, recordings, a list of recording IDs (chapter sequence + part sequence), and the name for the next video recording, file sizes.
 This should be extracted to an AstroJS Website or HTML template servered by a local webserver and provide viewing and navigation for all my video projects.
+

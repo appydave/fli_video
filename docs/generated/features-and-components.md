@@ -3,13 +3,16 @@
 ### Feature <-> DSL GPTs
 https://chat.openai.com/g/g-AyFi0UOXn-code-simplifier
 
-**Read Global Configuration**
+**Global Configuration**
 Access and apply global configuration settings for video asset management and state consistency.
 
 **Project Configuration**
-Access and apply video or episode settings and state.
+Access and apply video or episode settings and state. Infers project settings from existing project folders and files.
 
-**FileWatch Processor for File Event Commands**
+**CLI Project Commands**
+Efficiently execute and manage video project commands using a command-line interface, enhancing control and flexibility in project handling.
+
+**FileWatch Processor**
 Utilize a FileWatch processor to automate file event responses, directing new recordings to designated folders for efficient content management.
 
 **Create Project**
@@ -64,15 +67,13 @@ Build a JSON datastore of files for an entire project based on existing project,
 
 ## Future Ideas
 
-**CLI Project Management Interface**
-Efficiently execute and manage video project commands using a command-line interface, enhancing control and flexibility in project handling.
-
 **Web Command Interface for Video Project Management**
 Introduce a streamlined, web-based interface for managing video project commands, enabling efficient control and organization of project components through simple browser interactions.
 
 **Project Meta Report**
 Generate a detailed report for a specific video project, including the episodes, chapters, recordings, a list of recording IDs (chapter sequence + part sequence), and the name for the next video recording, file sizes.
 This should be extracted to an AstroJS Website or HTML template servered by a local webserver and provide viewing and navigation for all my video projects.
+
 
 
 ## Klue Components
@@ -83,7 +84,7 @@ Klue Component: `add_episode.klue`
 component :add_episode do
   desc "Add a new episode to an existing podcast project."
 
-  pattern "Interactor"
+  pattern "Command"
 
   comments <<~TEXT
     - Facilitates the addition of a new episode to a specific podcast project.
@@ -189,7 +190,7 @@ Klue Component: `create_project.klue`
 component :create_project do
   desc "Setup a new video project for standalone YouTube video or Podcast."
 
-  pattern "Interactor"
+  pattern "Command"
 
   comments <<~TEXT
     - Allows the creation of a new project, specifying if it's for a YouTube video or a Podcast.

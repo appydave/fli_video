@@ -73,3 +73,4 @@ Introduce a streamlined, web-based interface for managing video project commands
 **Project Meta Report**
 Generate a detailed report for a specific video project, including the episodes, chapters, recordings, a list of recording IDs (chapter sequence + part sequence), and the name for the next video recording, file sizes.
 This should be extracted to an AstroJS Website or HTML template servered by a local webserver and provide viewing and navigation for all my video projects.
+

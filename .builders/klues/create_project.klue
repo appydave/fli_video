@@ -1,7 +1,7 @@
 component :create_project do
   desc "Setup a new video project for standalone YouTube video or Podcast."
 
-  pattern "Interactor"
+  pattern "Command"
 
   comments <<~TEXT
     - Allows the creation of a new project, specifying if it's for a YouTube video or a Podcast.

@@ -1,7 +1,7 @@
 component :add_episode do
   desc "Add a new episode to an existing podcast project."
 
-  pattern "Interactor"
+  pattern "Command"
 
   comments <<~TEXT
     - Facilitates the addition of a new episode to a specific podcast project.

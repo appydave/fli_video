@@ -345,3 +345,4 @@ project-name/recordings/03-a-outro.mov
 project-name/recordings/03-b-outro-cta.mov
 project-name/recordings/03-c-outro.mov
 ```
+

@@ -1,5 +1,9 @@
 [
   {
+    "name": ".rspec_status",
+    "type": "file"
+  },
+  {
     "name": "spec",
     "type": "directory",
     "children": [
@@ -20,10 +24,6 @@
     "type": "file"
   },
   {
-    "name": "readme-current-project-setup.md",
-    "type": "file"
-  },
-  {
     "name": "lib",
     "type": "directory",
     "children": [
@@ -34,12 +34,12 @@
           {
             "name": "cli.rb",
             "type": "file",
-            "content": "# frozen_string_literal: true\n\nrequire_relative '../fli_video'\n\nmodule FliVideo\n  class CLI\n    def self.start(args)\n      new(args).execute\n    end\n\n    def initialize(args)\n      @args = args\n    end\n\n    def execute\n      if @args.empty?\n        puts \"FliVideo CLI - No command provided\"\n        return\n      end\n\n      case @args.first\n      when 'version'\n        puts \"FliVideo version #{FliVideo::VERSION}\"\n      else\n        puts \"Unknown command: #{@args.first}\"\n      end\n    end\n  end\nend\n"
+            "content": "# frozen_string_literal: true\n\nrequire_relative '../fli_video'\n\nmodule FliVideo\n  # FliVideo::CLI is the command line interface for the FliVideo gem.\n  class CLI\n    def self.start(args)\n      new(args).execute\n    end\n\n    def initialize(args)\n      @args = args\n    end\n\n    def execute\n      if @args.empty?\n        puts 'FliVideo CLI - No command provided'\n        return\n      end\n\n      case @args.first\n      when 'version'\n        puts \"FliVideo version #{FliVideo::VERSION}\"\n      else\n        puts \"Unknown command: #{@args.first}\"\n      end\n    end\n  end\nend\n"
           },
           {
             "name": "version.rb",
             "type": "file",
-            "content": "# frozen_string_literal: true\n\nmodule FliVideo\n  VERSION = '0.0.2'\nend\n"
+            "content": "# frozen_string_literal: true\n\nmodule FliVideo\n  VERSION = '0.1.0'\nend\n"
           }
         ]
       },
@@ -53,5 +53,179 @@
   {
     "name": "Gemfile",
     "type": "file"
+  },
+  {
+    "name": "coverage",
+    "type": "directory",
+    "children": [
+      {
+        "name": "index.html",
+        "type": "file"
+      },
+      {
+        "name": ".last_run.json",
+        "type": "file"
+      },
+      {
+        "name": ".resultset.json",
+        "type": "file"
+      },
+      {
+        "name": "assets",
+        "type": "directory",
+        "children": [
+          {
+            "name": "0.12.3",
+            "type": "directory",
+            "children": [
+              {
+                "name": "images",
+                "type": "directory",
+                "children": [
+                  {
+                    "name": "ui-icons_cd0a0a_256x240.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-icons_888888_256x240.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_glass_75_dadada_1x400.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-icons_2e83ff_256x240.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_flat_75_ffffff_40x100.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_glass_75_e6e6e6_1x400.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_glass_65_ffffff_1x400.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_glass_95_fef1ec_1x400.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-icons_222222_256x240.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_highlight-soft_75_cccccc_1x100.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_glass_55_fbf9ee_1x400.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-icons_454545_256x240.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "ui-bg_flat_0_aaaaaa_40x100.png",
+                    "type": "file"
+                  }
+                ]
+              },
+              {
+                "name": "application.css",
+                "type": "file"
+              },
+              {
+                "name": "loading.gif",
+                "type": "file"
+              },
+              {
+                "name": "colorbox",
+                "type": "directory",
+                "children": [
+                  {
+                    "name": "border.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "loading.gif",
+                    "type": "file"
+                  },
+                  {
+                    "name": "controls.png",
+                    "type": "file"
+                  },
+                  {
+                    "name": "loading_background.png",
+                    "type": "file"
+                  }
+                ]
+              },
+              {
+                "name": "favicon_red.png",
+                "type": "file"
+              },
+              {
+                "name": "favicon_green.png",
+                "type": "file"
+              },
+              {
+                "name": "favicon_yellow.png",
+                "type": "file"
+              },
+              {
+                "name": "DataTables-1.10.20",
+                "type": "directory",
+                "children": [
+                  {
+                    "name": "images",
+                    "type": "directory",
+                    "children": [
+                      {
+                        "name": "sort_asc_disabled.png",
+                        "type": "file"
+                      },
+                      {
+                        "name": "sort_both.png",
+                        "type": "file"
+                      },
+                      {
+                        "name": "sort_desc_disabled.png",
+                        "type": "file"
+                      },
+                      {
+                        "name": "sort_desc.png",
+                        "type": "file"
+                      },
+                      {
+                        "name": "sort_asc.png",
+                        "type": "file"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "magnify.png",
+                "type": "file"
+              },
+              {
+                "name": "application.js",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": ".resultset.json.lock",
+        "type": "file"
+      }
+    ]
   }
 ]
