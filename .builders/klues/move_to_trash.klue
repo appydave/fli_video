@@ -11,9 +11,9 @@ component :move_to_trash do
 
   constructure(:parent_project)
 
-  method :run(:file_name)
+  method :run(:file_name = nil)
 
-  sample :move_video_to_trash, <<~RUBY
+  sample :move_named_video_to_trash, <<~RUBY
     project_path = ProjectPath.new('a27')
 
     command = move_to_trash.new(project_path)
@@ -21,7 +21,13 @@ component :move_to_trash do
     # Example of moving a specific suboptimal video take to the trash folder
     command.run('01-a-introduction.mov')
     # => "~/video-projects/a27-ac-categorize-mp4-CI/.trash/01-a-introduction.mov"
+  RUBY
 
+  sample :move_last_ecamm__video_to_trash, <<~RUBY
+    project_path = ProjectPath.new('a27')
+
+    command = move_to_trash.new(project_path)
+  
     # Example of moving the last suboptimal video take to the trash folder
     command.run
     # => "~/video-projects/a27-ac-categorize-mp4-CI/.trash/Ecamm Live Recording on 2023-08-25 at 14.51.58.mov

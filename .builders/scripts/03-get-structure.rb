@@ -1,3 +1,25 @@
+# Prompt:
+# Create a Ruby script to scan a project's directory, ignoring specific folders and files. For the remaining files,
+# especially *.rb, generate a JSON file with their structure and content. and write to docs/generated/application-structure.json
+# Store a copy of the data in the clipboard
+
+# Sample Structure
+# ```json
+# [
+#   {
+#     "name": "bin",
+#     "type": "directory",
+#     "children": [
+#       {
+#         "name": "fli.rb",
+#         "type": "file",
+#         "content": "require 'fli_video'\n\nFliVideo::CLI.start(ARGV)\n"
+#       }
+#     ]
+#   }
+# ]
+# ```
+
 require 'json'
 
 def include_file_content?(file_name, include_content_for)
