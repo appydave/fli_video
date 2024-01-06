@@ -9,6 +9,7 @@ The content from each Klue file have a simple heading and be wraped with in a co
 
 Example:
 
+
 ## Klue Components
 
 Klue Component: `add_episode.klue`
@@ -22,3 +23,4 @@ Klue Component: `change_chapter_name.klue`
 ```ruby
 # content of change_chapter_name.klue goes here
 ```
+
