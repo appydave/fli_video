@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/klueless-io/fli_video/compare/v0.1.0...v0.1.1) (2024-05-20)
+
+
+### Bug Fixes
+
+* update requirements ([0643756](https://github.com/klueless-io/fli_video/commit/0643756ab209ff9d084bcc32837f7783344b9286))
+
 # [0.1.0](https://github.com/klueless-io/fli_video/compare/v0.0.2...v0.1.0) (2023-12-24)
 
 
