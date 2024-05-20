@@ -100,7 +100,5 @@ include_content_for = [
 
 structure = list_dir('.', ignore_folders, ignore_files, include_content_for)
 write_structure_to_file('docs/generated/application-structure.json', structure)
-
 gpt_content = build_gpt_content(structure)
-# puts gpt_content
-IO.popen('pbcopy', 'w') { |io| io.puts gpt_content }
+copy_to_clipboard(gpt_content)

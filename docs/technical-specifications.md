@@ -2,7 +2,19 @@
 
 ## Application Overview
 
-This document provides an overview of a specialized application designed primarily for video content creators using Ecamm Live on the Mac, and adaptable for OBS users. Tailored for projects ranging from individual YouTube videos to episodes in a podcast series, the application fits seamlessly into the workflow between video recording and editing. It streamlines the post-recording process, encompassing file organization, renaming, and assembly of video recordings, thereby enhancing the efficiency and structure of content creation.
+FliVideo is a Video Asset Managment tool created by a YouTuber `@AppyDave` for YouTubers.
+
+It provides a set of image, video and workflow management tools to help its creator 'AppyDave' to automate and systemetize the video production process.
+
+The intiial idea behind FliVideo was Zappier for YouTubers, but it is evolving with a range of capabilities around script, b-roll and presenation canvas automation.
+
+### Video Recording Managment
+
+FliVideo initially targeted video content creators using Ecamm Live on the Mac, and adaptable for OBS users.
+
+Tailored for projects ranging from individual YouTube videos to episodes in a podcast series, the application fits seamlessly into the workflow between video recording and editing. 
+
+It streamlines the post-recording process, encompassing file organization, renaming, and assembly of video recordings, thereby enhancing the efficiency and structure of content creation.
 
 ### Core Functionality
 

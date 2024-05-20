@@ -1,0 +1,53 @@
+[
+  {
+    "name": "spec",
+    "type": "directory",
+    "children": [
+      {
+        "name": "spec_helper.rb",
+        "type": "file",
+        "content": "# frozen_string_literal: true\n\nrequire 'pry'\nrequire 'bundler/setup'\nrequire 'simplecov'\n\nSimpleCov.start\n\nrequire 'fli_video'\n\nRSpec.configure do |config|\n  # Enable flags like --only-failures and --next-failure\n  config.example_status_persistence_file_path = '.rspec_status'\n  config.filter_run_when_matching :focus\n\n  # Disable RSpec exposing methods globally on `Module` and `main`\n  config.disable_monkey_patching!\n\n  config.expect_with :rspec do |c|\n    c.syntax = :expect\n  end\nend\n"
+      },
+      {
+        "name": "fli_video_spec.rb",
+        "type": "file",
+        "content": "# frozen_string_literal: true\n\nRSpec.describe FliVideo do\n  it 'has a version number' do\n    expect(FliVideo::VERSION).not_to be_nil\n  end\nend\n"
+      }
+    ]
+  },
+  {
+    "name": "README.md",
+    "type": "file"
+  },
+  {
+    "name": "lib",
+    "type": "directory",
+    "children": [
+      {
+        "name": "fli_video",
+        "type": "directory",
+        "children": [
+          {
+            "name": "cli.rb",
+            "type": "file",
+            "content": "# frozen_string_literal: true\n\nrequire_relative '../fli_video'\n\nmodule FliVideo\n  # FliVideo::CLI is the command line interface for the FliVideo gem.\n  class CLI\n    def self.start(args)\n      new(args).execute\n    end\n\n    def initialize(args)\n      @args = args\n    end\n\n    def execute\n      if @args.empty?\n        puts 'FliVideo CLI - No command provided'\n        return\n      end\n\n      case @args.first\n      when 'version'\n        puts \"FliVideo version #{FliVideo::VERSION}\"\n      else\n        puts \"Unknown command: #{@args.first}\"\n      end\n    end\n  end\nend\n"
+          },
+          {
+            "name": "version.rb",
+            "type": "file",
+            "content": "# frozen_string_literal: true\n\nmodule FliVideo\n  VERSION = '0.1.0'\nend\n"
+          }
+        ]
+      },
+      {
+        "name": "fli_video.rb",
+        "type": "file",
+        "content": "# frozen_string_literal: true\n\nrequire_relative 'fli_video/version'\n\nmodule FliVideo\n  class Error < StandardError; end\n  # Your code goes here...\nend\n"
+      }
+    ]
+  },
+  {
+    "name": "Gemfile",
+    "type": "file"
+  }
+]

@@ -2,7 +2,7 @@
 
 > FliVideo - Video Asset Management for Content Creators
 
-GPT Link: https://chat.openai.com/c/895a1bf9-8134-4688-8805-b8047af5f3f0
+GPT Link: https://chatgpt.com/c/dd1f4202-a449-45a6-af45-b65d8e544685
 
 ## Installation
 
