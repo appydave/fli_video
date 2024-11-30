@@ -1,3 +1,10 @@
+## [0.1.4](https://github.com/appydave/fli_video/compare/v0.1.3...v0.1.4) (2024-11-30)
+
+
+### Bug Fixes
+
+* update mygems repo location ([6077b7f](https://github.com/appydave/fli_video/commit/6077b7f50968c33e48e539918dee4f3aee1a0fe8))
+
 ## [0.1.3](https://github.com/klueless-io/fli_video/compare/v0.1.2...v0.1.3) (2024-11-30)
 
 
