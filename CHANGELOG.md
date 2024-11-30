@@ -1,3 +1,11 @@
+## [0.1.2](https://github.com/klueless-io/fli_video/compare/v0.1.1...v0.1.2) (2024-11-30)
+
+
+### Bug Fixes
+
+* cop rule update ([2572a7d](https://github.com/klueless-io/fli_video/commit/2572a7df36195d44579a77b3dc85112fa0ff4d5d))
+* update with new project cli requirments ([0454744](https://github.com/klueless-io/fli_video/commit/0454744eb5d5e3d76271c763fc7b520babfc5556))
+
 ## [0.1.1](https://github.com/klueless-io/fli_video/compare/v0.1.0...v0.1.1) (2024-05-20)
 
 
