@@ -97,7 +97,11 @@ Layout/SpaceBeforeComma:
 RSpec/NestedGroups:
   Max: 5
 
-RSpec/FilePath:
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - "**/spec/**/*"
+
+RSpec/SpecFilePathSuffix:
   Exclude:
     - "**/spec/**/*"
 
