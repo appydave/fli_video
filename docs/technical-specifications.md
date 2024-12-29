@@ -1,24 +1,280 @@
 # FliVideo
 
+ADD Affiliate Management to FliVideo
+
 ## Application Overview
 
-FliVideo is a Video Asset Managment tool created by a YouTuber `@AppyDave` for YouTubers.
+FliVideo is a Video Asset Managment and publishing tool created by a YouTuber `@AppyDave` for YouTubers.
 
-It provides a set of image, video and workflow management tools to help its creator 'AppyDave' to automate and systemetize the video production process.
+FliVideo is an internal proof of concept tool that is being developed to help manage the video creation process for Content Creators, @appydave is using a build in public approach to develop this tool and is sharing the development process on his YouTube channel.
 
-The intiial idea behind FliVideo was Zappier for YouTubers, but it is evolving with a range of capabilities around script, b-roll and presenation canvas automation.
+It offers comprehensive organization and workflow management tools designed to automate and systematize the video production process.
 
-### Video Recording Managment
+Initially conceived as a "Zapier for YouTubers," FliVideo is evolving into a wholistic platform with a wide range of capabilities, including:
 
-FliVideo initially targeted video content creators using Ecamm Live on the Mac, and adaptable for OBS users.
+- Comprehensive Video Asset Management (VAM) for video, image, audio, and text content
+- Streamlined video recording and project management tools
+- Brand and YouTube channel management features
+- Published content capture for future content repurposing, backlinking, and cross-promotion.
+- Advanced AI-driven workflows for content creation and analysis
 
-Tailored for projects ranging from individual YouTube videos to episodes in a podcast series, the application fits seamlessly into the workflow between video recording and editing. 
+---
 
-It streamlines the post-recording process, encompassing file organization, renaming, and assembly of video recordings, thereby enhancing the efficiency and structure of content creation.
+## End-to-End Content Ecosystem Management
+
+FliVideo simplifies the entire content creation process with interconnected systems designed to streamline video recording, optimize workflows and maximize content utilization:
+
+### FliVideo Core
+
+The strategic and operational foundation of the platform, managing key elements like content creators, brands, channels, content pillars, and project configurations. 
+
+It defines the ecosystem's structure while ensuring seamless integration and alignment across the Creative Hub, Launch Optimizer and Content Intelligence modules.
+
+### Creative Hub
+- Manages the recording, editing, and production process to streamline video creation and maintain organization.
+- Supports tasks such as creating intros/outros, script quality analysis, suggeting CTA's, and maintaining consistency and tone across projects.
+
+### Launch Optimizer
+
+- Preparing and optimize YouTube videos with titles, thumbnails, descriptions other metadata.
+- Amplify workflows for derivative content, such as articles, posts and tweets based on video content.
+
+### Content Intelligence  
+- Functions as a centralized repository for published content, enabling seamless discovery of related videos, metadata, and assets.
+- Powers AI-driven features like cross-referencing content across channels, finding relevant videos for end cards, generating descriptions, and leveraging vector-based searches to enhance workflows.
+
+## FliVideo Core - Key Concepts
+
+### Content Creator:
+
+Person or business who creates content for a specific audience. 
+Creates content such as videos, lessons, podcasts, shorts, articles and tweets.
+Focuses on specific niche, topic or framework.
+ - A framework is a cross section of ideas that could include niche & topic, but aslo incorporate, style, format, philosophy, ethos or paradigm.
+
+A contact creators will have one or more brands, content channels and content pillars that they create content for.
+
+### Brand
+
+A brand represents the overarching identity or persona that drives content creation, combining purpose, perception, and presentation.
+
+Example: AppyDave (main brand) and AI-TLDR (secondary brand).
+
+### Channel
+
+Channels represent a platform or type of medioum to distribute content to the audience.
+
+Example: YouTube (@AppyDave), Website (AppyDave.com), X (x.com/appydave), podcast platforms, Instagram, and other social media.
+
+### Piller
+
+Content pillars are thematic or conceptual categories that define the recurring focus areas within a brand’s content.
+
+They serve as the foundation for long-term ideas or structured frameworks, encompassing a combination of niche, topic, format, and style.
+
+Examples:
+
+  AppyDave core pilars include prompt engineering, AI agents, and coding with AI, the secondary pillars are 555 Manifesto & KlueLess.
+
+## Creative Hub - Key Concepts
+
+### Project
+
+Projects containers for a standalone video, video series or written content pieces.
+
+Primary focus for FliVideo is on YouTube video projects, but secondary projects for written content are support.
+
+### Project Types
+
+Project types can be defined for each brand or channel to provide structure and rules.
+
+- Video projects include long form videos, video series/podcast episodes, short form video, and course creation.
+- Text based projects include articles, lessons, factsheets, ebooks, lead magnets.
+
+### Rule Matcher
+
+Rule matchers are used to identify new recordings, assets, or other digital content based on predefined criteria.
+Match rules rely on a combination of file name patterns, folder locations, and file extensions to identify new content.
+
+### Naming & Organization
+
+FliVideo employs a structured naming convention and organization system to effectively manage video projects, episodes, recordings, images, and other digital assets.
+
+Naming rules exist for projects, episodes, transcripts, recordings, b-roll and other digital assets.
+Organization systems exist for brand, channel, project, episode, recording, chapter, and asset folders.
+Distributed location organization exists for active, archived, or content shared between team members or platforms.
+
+### Recording Session  
+
+Recordings for video projects are structured as a sequence of parts and chapters to support better organization and workflow management.  
+Sessions can be stored at either the project or episode level, allowing flexibility in managing different types of content.
+As recordings are happening, they are processed on the fly, including real-time transcription. When a new chapter starts, a combined view of the transcription is generated, triggering chapter-specific events for advanced processing and organization.
+
+### Asset Watchers
+
+Asset Watchers actively monitor and automate the organization of digital assets in real time.
+
+Examples:
+  - Screen recording by Ecamm Live/OBS is renamed and moved to the appropriate project folder.
+  - Medial downloads from Leonardo.ai or Canva are named and moved to the appropriate asset folder.
+
+### Transcription
+
+Video assets are automatically transcribed to text and stored in project asset folder at the time of recording.
+
+### Text to AI
+
+Certain text is sent to AI agents for further processing and analysis based on predefined criteria.
+
+AI Agent Workflows:
+
+AI workflows are categorized into two primary areas: generation and analysis.
+
+- Generation: B-roll, chapter headings, script improvements, tweet generation and video to article.
+- Analysis: Identify boring content, conduct fact-checking, perform keyword and sentiment analysis or detecting filler words
+
+## Launch Optimizer - Key Concepts
+
+### Editor Brief
+
+The Editor Brief provides instructions and guidelines for the video editor, including key points, chapter titles, and suggested B-roll.
+
+### Title
+
+The title of the video is the most important part of the metadata.
+
+### Thumbnail
+
+The thumbnail is the first thing that people see when they are looking at your video.
+
+Artwork, design guidelines, thumbnail text, and A/B testing are all important aspects of creating a thumbnail.
+
+### Content Analysis
+
+- Main topic or theme
+- Extract relevant keywords.
+- Important statistics or numbers mentioned.
+- Highlight key takeaways or insights.
+- Emotional Triggers and Tone:
+- Overall Tone/Style:
+- Audience Insights:
+- Unique Selling Points (USPs):
+- Identify call-to-action (CTA) phrases:
+- Extract catchy phrases:
+- Extract relevant questions:
+- Extract search terms:
+
+### Meta Data
+
+- Keywords/tags
+- Brand information or mentions
+- Related videos/articles
+- Primary and secondary CTA's.
+- End cards
+
+### Chapters
+
+Chapter titles with timestamps
+
+### Description
+
+Build a description that includes video summary, chapters & meta data
+
+### Amplify
+
+- Pinned comment
+- Tweet
+- Articles (Medium, Dev.to, LinkedIn, Personal Blog)
+
+### Shorts Analysis
+
+- Identify potential shorts
+
+## Content Intelligence - Key Concepts
+
+### Content Repository
+
+A centralized repository for all published content, including videos, articles, and social media posts across a content creators brands and channels.
+
+### Content Graph
+
+The content graph represents the interconnected relationships between videos, video series, shorts, articles, and social media posts across a content creator's brands and channels.
+
+### Close out
+
+Archive: Designed for long-term storage and backup of published content, preserving finalized assets and metadata.
+Backup: Provides storage for unpublished or paused projects, retaining drafts, recordings, and materials for future use or potential repurposing.
+
+## Workflows - Creative Hub
+
+The following workflows are supported by the Creative Hub Module
+
+**Focus Project**:
+
+Switch between different video projects or episodes to accommodate changing content priorities.
+Incoming recordings, transcripts and visual assets are routed to the project with current focus.
+Project focus can be for standalone video or podcast episode/video series.
+
+**New Recording**:
+
+Video recordings via eCamm Live, OBS, Camtasia automatically route to the focus project based on rule match criteria.
+Once routed, a new_recording event will trigger
+
+**Recording Namer**:
+
+The new_recording triggers automatic file renaming based on project, episode, chapter, part, and tags.
+This workflow caters edgecases susch as for bad takes, rollbacks and renames.
+
+**Transcribe**:
+
+The new_recording will trigger real-time transcription of the video recording.
+
+**New Chapter**:
+
+An event fires on new chapter detection. 
+Actions can include: Combine recordings, Build chapter transcript, Create chapter heading, create transition b-roll, chapter analysis
+
+**Set Asset Type**:
+
+Incoming assets are routed or tagged based on focus asset type.
+
+**New Asset**:
+
+Images downloaded from Canva, Leonardo.ai, or other sources can be named and moved automatically to the appropriate project asset folder.
+
+
+## Lists
+
+Lists 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- 
 
 ### Core Functionality
 
-- **Video Management**: The application intelligently handles videos recorded via Ecamm Live. Once Ecamm saves the videos with a name and timestamp in its folder, our system relocates them to a specific project or episode folder within the project/recordings directory.
+- **Video Recording Management**: The application intelligently handles new video recordings and routes them to a target project location. Once a new recording is detected via configurable rules engine, it relocates the file to a specific project or episode folder.
 - **Project and Episode Handling**: Each video project pertains to either a single YouTube video or a series of podcast episodes. The application supports a structured approach to organizing these projects.
 - **Chapter-Based Recording**: Emulating a book's structure, down to chapters and individual paragraphs or sentences, videos are recorded and categorized as chapters, which can further be divided into smaller segments or 'parts', akin to paragraphs or sentences, labeled sequentially (e.g., a, b, c...).
 - **File Naming and Organization**: Adhering to a sophisticated naming convention, the application names projects using a sequence (e.g., a01..a99, b01..), a YouTube channel code (e.g., ac=AppyCast, fv=FliVideo), and specific project descriptors. This convention is applied to organize and identify video chapters and parts within each project.
@@ -358,3 +614,12 @@ project-name/recordings/03-b-outro-cta.mov
 project-name/recordings/03-c-outro.mov
 ```
 
+## Glossary / Definitions
+
+### Digital Asset Management vs Video Asset Management (DAM vs VAM)
+
+Digital Asset Management (DAM) is a system that stores, organizes, and retrieves digital assets such as images, videos, and other multimedia files.
+
+Video Asset Management (VAM) is a system that stores, organizes, and retrieves video assets such as video files, video clips, and other video-related files.
+
+FliVideo leans more towards Video Asset Management (VAM) but also supports Digital Asset Management (DAM) for images, audio and other multimedia files.
